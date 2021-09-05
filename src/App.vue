@@ -1,28 +1,44 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="container">
+    <div>
+      <h1 class="title is-1"> Resistor Calculator </h1>
+    </div>
+    
+    <div class="field has-addons">
+      <p class="control">
+        <button class="button is-outlined is-link" v-on:click="view = 'bands'"> Color Bands </button>
+      </p>
+      <p class="control">
+        <button class="button is-outlined is-link" v-on:click="view = 'digit'"> Digits </button>
+      </p>
+    </div>
+
+    <div v-if="view == 'bands'">
+      <Colorbands   />
+    </div>
+
+    <div v-if="view == 'empty' ">
+      <p> Select Type of marking on the part to continue. </p>
+    </div>
+    
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Colorbands from './components/Colorbands.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Colorbands
+  },
+  data(){return{
+    view: 'empty',
+  }}
 }
+
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

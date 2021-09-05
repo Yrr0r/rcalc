@@ -1,6 +1,9 @@
 # rcalc
 
+Resistor value calculator. Still in infant stage. Only calc 3 band at this moment.
+
 ## Project setup
+
 ```
 pnpm install
 ```
